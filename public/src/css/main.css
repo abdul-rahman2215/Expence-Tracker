@@ -1,0 +1,42 @@
+/* Main Typography & General Style Classes */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-text);
+}
+
+h1 { font-size: var(--text-3xl); }
+h2 { font-size: var(--text-2xl); }
+h3 { font-size: var(--text-xl); }
+h4 { font-size: var(--text-lg); }
+
+p {
+  color: var(--color-text-muted);
+}
+
+.text-primary { color: var(--color-primary); }
+.text-income { color: var(--color-income); }
+.text-expense { color: var(--color-expense); }
+.text-savings { color: var(--color-savings); }
+.text-muted { color: var(--color-text-muted); }
+.text-light { color: var(--color-text-light); }
+
+.bg-income { background-color: var(--color-income-light); }
+.bg-expense { background-color: var(--color-expense-light); }
+.bg-primary { background-color: var(--color-primary-light); }
+
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }
+.font-medium { font-weight: 500; }
+
+.hidden { display: none !important; }
+
+/* Utility Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}

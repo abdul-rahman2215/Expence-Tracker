@@ -1,0 +1,15 @@
+{
+  "name": "Smart Expense Tracker",
+  "short_name": "ExpenseTracker",
+  "start_url": "/src/pages/dashboard/dashboard.html",
+  "display": "standalone",
+  "background_color": "#080A14",
+  "theme_color": "#080A14",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png"
+    }
+  ]
+}

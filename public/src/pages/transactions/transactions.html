@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#080A14">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Transactions - Smart Expense Tracker</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../../favicon.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Design System -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/forms.css">
+  <link rel="stylesheet" href="../../css/tables.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+
+  <!-- Supabase CDN Script -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside id="app-sidebar"></aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="main-wrapper">
+      <!-- Top Navbar -->
+      <header id="app-navbar"></header>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="page-header">
+          <div class="page-title-group">
+            <h1>Transactions</h1>
+            <p class="text-muted">Manage, filter, and search your recorded income and expenses.</p>
+          </div>
+          <div style="display: flex; gap: 12px;">
+            <button id="btn-page-add-income" class="btn btn-secondary btn-sm" style="color: var(--color-income);">+ Add Income</button>
+            <button id="btn-page-add-expense" class="btn btn-primary btn-sm">+ Add Expense</button>
+          </div>
+        </div>
+
+        <!-- Filter Card -->
+        <div class="card" style="margin-bottom: var(--space-6);">
+          <div class="form-row" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+            <!-- Search -->
+            <div class="form-group" style="margin-bottom: 0;">
+              <label for="filter-search">Search Description</label>
+              <input type="text" id="filter-search" class="form-control" placeholder="Search keywords...">
+            </div>
+
+            <!-- Type Filter -->
+            <div class="form-group" style="margin-bottom: 0;">
+              <label for="filter-type">Transaction Type</label>
+              <select id="filter-type" class="form-control">
+                <option value="">All Types</option>
+                <option value="expense">Expenses Only</option>
+                <option value="income">Income Only</option>
+              </select>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="form-group" style="margin-bottom: 0;">
+              <label for="filter-category">Category</label>
+              <select id="filter-category" class="form-control">
+                <option value="">All Categories</option>
+              </select>
+            </div>
+
+            <!-- Payment Method Filter -->
+            <div class="form-group" style="margin-bottom: 0;">
+              <label for="filter-payment">Payment Method</label>
+              <select id="filter-payment" class="form-control">
+                <option value="">All Payments</option>
+                <option value="UPI">UPI</option>
+                <option value="Cash">Cash</option>
+                <option value="Debit Card">Debit Card</option>
+                <option value="Credit Card">Credit Card</option>
+                <option value="Bank Transfer">Bank Transfer</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <!-- Reset Filters -->
+            <div class="form-group" style="margin-bottom: 0; display: flex; align-items: flex-end;">
+              <button id="btn-reset-filters" class="btn btn-secondary" style="width: 100%;">Reset Filters</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Transactions Table Card -->
+        <div class="card">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Category</th>
+                  <th>Description</th>
+                  <th>Payment</th>
+                  <th>Amount</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="transaction-table-body">
+                <!-- Dynamically Populated -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Pagination Controls -->
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--color-border);">
+            <span id="pagination-info" class="text-muted" style="font-size: var(--text-xs);">Showing 0 of 0 transactions</span>
+            <div style="display: flex; gap: var(--space-2);">
+              <button id="btn-prev-page" class="btn btn-secondary btn-sm" disabled>Previous</button>
+              <button id="btn-next-page" class="btn btn-secondary btn-sm" disabled>Next</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="../../js/pages/transactions.js"></script>
+</body>
+</html>

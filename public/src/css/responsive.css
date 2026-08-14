@@ -1,0 +1,330 @@
+/* Responsive Mobile-Only UI System & Quality Assurance - Dark Fintech SaaS Theme */
+
+/* Accessibility Keyboard & Touch Focus Styles */
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Touch Action Optimization for Fast Response without 300ms Click Delay */
+a, button, input, select, textarea, .btn, .nav-item, .card {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Base Body Containment to Eliminate Unwanted Horizontal Page Scrolling */
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Mobile-Only Responsive Rules (Screen Width <= 768px) */
+@media (max-width: 768px) {
+
+  /* ------------------------------------------------------------
+   * PART 1 — DASHBOARD DUPLICATE ACTION BUTTONS (MOBILE FIX)
+   * Hide ONLY the header-level "+ Add Income" and "+ Add Expense" buttons in top-navbar.
+   * Keep filter-level buttons below "This Month" visible on mobile.
+   * ------------------------------------------------------------ */
+  /* Hide the 3 header buttons on mobile: Theme Toggle, Add Income, Add Expense */
+  #btn-theme-toggle,
+  #nav-btn-add-income,
+  #nav-btn-add-expense,
+  .top-navbar .btn-bubble,
+  .top-navbar .btn-glow {
+    display: none !important;
+  }
+
+  /* Main Content Spacing for Mobile Navigation */
+  .main-content {
+    padding: var(--space-4) var(--space-3) 90px var(--space-3);
+  }
+
+  /* Main Wrapper Zero Margin on Mobile */
+  .main-wrapper {
+    margin-left: 0;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  /* Top Navbar Fixed Single Line on Mobile */
+  .top-navbar {
+    height: 60px;
+    min-height: 60px;
+    max-height: 60px;
+    padding: 0 12px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .top-navbar h2 {
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 160px;
+  }
+
+  /* Form & Button Touch Targets (44px Minimum) */
+  .btn {
+    min-height: 44px;
+    padding: 10px 16px;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-sm {
+    min-height: 44px;
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .form-control {
+    min-height: 44px;
+    font-size: 16px !important; /* Prevents auto-zoom on Android/iOS keyboard focus */
+    padding: 10px 14px;
+    border-radius: 10px;
+  }
+
+  /* Mobile Responsive Date Input */
+  input[type="date"].form-control {
+    min-height: 44px;
+    font-size: 16px !important;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #0D1020;
+    color: #F8FAFC;
+  }
+
+  /* Sidebar Mobile Drawer */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 285px;
+    z-index: 1050;
+    transform: translateX(-100%);
+    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.7);
+    background: rgba(18, 22, 42, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  /* Backdrop for Mobile Sidebar */
+  .sidebar-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(8, 10, 20, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1040;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 250ms ease;
+  }
+
+  .sidebar-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Page Headers Stacking on Mobile */
+  .page-header {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-bottom: 16px;
+    width: 100%;
+  }
+
+  .page-header h1 {
+    font-size: 1.35rem;
+  }
+
+  .page-header select,
+  .page-header input {
+    width: 100%;
+  }
+
+  /* Metric & Layout Grids */
+  .metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Modals on Mobile (Slide Up Bottom Sheet) */
+  .modal-backdrop {
+    padding: var(--space-3);
+    align-items: flex-end;
+  }
+
+  .modal {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    max-height: 85vh;
+    border-radius: 20px 20px 0 0;
+    animation: slideUp 250ms ease-out;
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+
+  .modal-body {
+    padding: var(--space-4);
+    overflow-y: auto;
+  }
+
+  .modal-header, .modal-footer {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  /* Mobile App Bottom Navigation Bar */
+  .mobile-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: rgba(18, 22, 42, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 990;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #A7ADC4;
+    text-decoration: none;
+    font-size: 11px;
+    gap: 3px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    transition: all 200ms ease;
+    min-width: 52px;
+    min-height: 44px;
+  }
+
+  .mobile-nav-item.active {
+    color: #EC4899;
+    background: rgba(124, 58, 237, 0.18);
+  }
+
+  .mobile-nav-item span:first-child {
+    font-size: 18px;
+  }
+
+  /* Floating Quick Action Button for Mobile */
+  .mobile-fab-add {
+    position: fixed;
+    bottom: 76px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7C3AED, #EC4899);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: 700;
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.5);
+    z-index: 991;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: transform 200ms ease;
+  }
+
+  .mobile-fab-add:active {
+    transform: scale(0.92);
+  }
+}
+
+/* Compact Smartphones (Screen Width <= 375px: e.g. 320px, 360px, 375px) */
+@media (max-width: 375px) {
+  .main-content {
+    padding: var(--space-3) var(--space-2) 90px var(--space-2);
+  }
+
+  .card {
+    padding: var(--space-4) var(--space-3);
+    border-radius: 14px;
+  }
+
+  .metric-value {
+    font-size: 1.5rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.25rem;
+  }
+
+  .mobile-nav-item {
+    font-size: 10px;
+    padding: 4px 6px;
+    min-width: 44px;
+  }
+
+  .btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .auth-card {
+    padding: 20px 14px;
+    border-radius: 16px;
+    width: 100%;
+  }
+}
+
+/* Desktop & Laptop Screens (> 768px) - Preserves Existing Desktop UI 100% Unchanged */
+@media (min-width: 769px) {
+  .mobile-fab-add,
+  .mobile-bottom-nav,
+  .sidebar-backdrop {
+    display: none !important;
+  }
+}

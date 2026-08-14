@@ -1,0 +1,127 @@
+/* Data Tables Architecture - Dark Fintech SaaS Theme */
+
+.table-responsive,
+.transactions-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(18, 22, 42, 0.4);
+}
+
+/* Custom Dark Fintech Scrollbar / Scroll Indicator for Horizontal Touch Scrolling */
+.table-responsive::-webkit-scrollbar,
+.transactions-table-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.table-responsive::-webkit-scrollbar-track,
+.transactions-table-wrapper::-webkit-scrollbar-track {
+  background: #0D1020;
+  border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb,
+.transactions-table-wrapper::-webkit-scrollbar-thumb {
+  background: #3A315B;
+  border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover,
+.transactions-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #7C3AED;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th {
+  padding: 14px 16px;
+  background: rgba(18, 22, 42, 0.95);
+  color: #A7ADC4;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.table td {
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.015);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  color: #F8FAFC;
+  font-size: var(--text-sm);
+  vertical-align: middle;
+  transition: background var(--transition-fast);
+}
+
+.table tbody tr:hover td {
+  background: rgba(124, 58, 237, 0.06);
+}
+
+.table-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Category & Amount formatting */
+.tx-amount-income {
+  color: #22C55E;
+  font-weight: 700;
+}
+
+.tx-amount-expense {
+  color: #EF4444;
+  font-weight: 700;
+}
+
+/* Mobile Table Column Alignment & Minimum Width Rules */
+@media (max-width: 768px) {
+  .table {
+    width: max-content;
+    min-width: 100%;
+  }
+
+  .table th, .table td {
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+
+  .table th:nth-child(1), .table td:nth-child(1) { /* Date */
+    min-width: 105px;
+    white-space: nowrap;
+  }
+
+  .table th:nth-child(2), .table td:nth-child(2) { /* Category */
+    min-width: 125px;
+    white-space: nowrap;
+  }
+
+  .table th:nth-child(3), .table td:nth-child(3) { /* Description */
+    min-width: 140px;
+    white-space: normal;
+  }
+
+  .table th:nth-child(4), .table td:nth-child(4) { /* Payment / Amount */
+    min-width: 105px;
+    white-space: nowrap;
+  }
+
+  .table th:nth-child(5), .table td:nth-child(5) { /* Amount */
+    min-width: 105px;
+    white-space: nowrap;
+  }
+
+  .table th:nth-child(6), .table td:nth-child(6) { /* Actions */
+    min-width: 130px;
+    white-space: nowrap;
+  }
+}

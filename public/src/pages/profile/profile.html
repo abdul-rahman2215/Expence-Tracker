@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile - Smart Expense Tracker</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../../favicon.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Design System -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/forms.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+
+  <!-- Supabase CDN Script -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside id="app-sidebar"></aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="main-wrapper">
+      <!-- Top Navbar -->
+      <header id="app-navbar"></header>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="page-header">
+          <div class="page-title-group">
+            <h1>User Profile</h1>
+            <p class="text-muted">Manage your personal information and default currency settings.</p>
+          </div>
+        </div>
+
+        <div class="card" style="max-width: 600px;">
+          <form id="profile-form">
+            <div class="form-group">
+              <label for="prof-email">Email Address (Managed via Supabase Auth)</label>
+              <input type="email" id="prof-email" class="form-control" disabled style="opacity: 0.7;">
+            </div>
+
+            <div class="form-group">
+              <label for="prof-name">Full Name *</label>
+              <input type="text" id="prof-name" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label for="prof-currency">Default Base Currency</label>
+              <select id="prof-currency" class="form-control">
+                <option value="INR" selected>INR (₹) - Indian Rupee</option>
+                <option value="USD">USD ($) - US Dollar</option>
+                <option value="EUR">EUR (€) - Euro</option>
+                <option value="GBP">GBP (£) - British Pound</option>
+              </select>
+            </div>
+
+            <button type="submit" id="btn-save-profile" class="btn btn-primary" style="margin-top: var(--space-4);">
+              Save Profile Changes
+            </button>
+          </form>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="../../js/pages/profile.js"></script>
+</body>
+</html>

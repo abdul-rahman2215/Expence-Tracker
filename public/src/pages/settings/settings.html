@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Smart Expense Tracker</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../../favicon.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Design System -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/forms.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+
+  <!-- Supabase CDN Script -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside id="app-sidebar"></aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="main-wrapper">
+      <!-- Top Navbar -->
+      <header id="app-navbar"></header>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="page-header">
+          <div class="page-title-group">
+            <h1>Application Settings</h1>
+            <p class="text-muted">Customize your theme, notification preferences, and account controls.</p>
+          </div>
+        </div>
+
+        <!-- Preferences Card -->
+        <div class="card" style="max-width: 600px; margin-bottom: var(--space-6);">
+          <h3 class="card-title" style="margin-bottom: var(--space-4);">Appearance & Preferences</h3>
+          
+          <div class="form-group">
+            <label for="set-theme-select">Interface Theme</label>
+            <select id="set-theme-select" class="form-control">
+              <option value="light">☀️ Light Theme</option>
+              <option value="dark">🌙 Dark Theme</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="set-notifications-toggle" style="display: flex; align-items: center; gap: 8px;">
+              <input type="checkbox" id="set-notifications-toggle" checked style="width: 18px; height: 18px;">
+              <span>Enable Monthly Budget Warning Notifications</span>
+            </label>
+          </div>
+
+          <button id="btn-save-settings" class="btn btn-primary" style="margin-top: var(--space-4);">
+            Save Preferences
+          </button>
+        </div>
+
+        <!-- Danger Zone: Account Deletion Card -->
+        <div class="card" style="max-width: 600px; border-color: var(--color-danger); background-color: var(--color-expense-light);">
+          <h3 class="card-title text-danger" style="margin-bottom: var(--space-2);">⚠️ Danger Zone: Delete Account</h3>
+          <p style="font-size: var(--text-sm); margin-bottom: var(--space-4);">
+            Permanently delete your account and all associated transactions, budgets, and data. This action cannot be undone.
+          </p>
+          <button id="btn-open-delete-account" class="btn btn-danger btn-sm">
+            Delete My Account Permanently
+          </button>
+        </div>
+
+        <!-- Delete Account Confirmation Modal -->
+        <div id="modal-delete-account-backdrop" class="modal-backdrop">
+          <div class="modal" style="max-width: 440px;">
+            <div class="modal-header">
+              <h3 class="modal-title text-danger">Confirm Account Deletion</h3>
+              <button class="modal-close" data-modal-close>&times;</button>
+            </div>
+            <div class="modal-body">
+              <p style="margin-bottom: 16px;">
+                Are you absolutely sure? Type <strong>DELETE</strong> below to confirm permanent deletion of your account data.
+              </p>
+              <input type="text" id="confirm-delete-input" class="form-control" placeholder="Type DELETE to confirm">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-modal-close>Cancel</button>
+              <button type="button" id="btn-confirm-delete-account" class="btn btn-danger" disabled>Confirm Delete</button>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="../../js/pages/settings.js"></script>
+</body>
+</html>

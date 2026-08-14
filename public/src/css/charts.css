@@ -1,0 +1,59 @@
+/* Chart Container & Budget Progress Bar Styles - Dark Fintech Theme */
+
+.chart-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  margin-top: var(--space-4);
+}
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  justify-content: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.legend-color {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+}
+
+/* Budget Progress Bar Styles */
+.budget-progress-track {
+  width: 100%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-top: 10px;
+  position: relative;
+}
+
+.budget-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #7C3AED, #EC4899);
+  border-radius: var(--radius-full);
+  transition: width 400ms ease-out;
+}
+
+.budget-progress-fill.exceeded {
+  background: linear-gradient(90deg, #EF4444, #B91C1C) !important;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.5);
+}

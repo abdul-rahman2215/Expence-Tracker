@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#080A14">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Analytics - Smart Expense Tracker</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../../favicon.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Design System -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/charts.css">
+  <link rel="stylesheet" href="../../css/forms.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+
+  <!-- Supabase CDN Script -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- Chart.js CDN Script -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside id="app-sidebar"></aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="main-wrapper">
+      <!-- Top Navbar -->
+      <header id="app-navbar"></header>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="page-header">
+          <div class="page-title-group">
+            <h1>Analytics & Insights</h1>
+            <p class="text-muted">Analyze your category breakdowns, trends, and rule-based observations.</p>
+          </div>
+          
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <select id="analytics-month-select" class="form-control" style="width: 140px;"></select>
+            <select id="analytics-year-select" class="form-control" style="width: 110px;"></select>
+          </div>
+        </div>
+
+        <!-- Smart Insights Banner Panel -->
+        <div class="card" style="margin-bottom: var(--space-6); background: linear-gradient(135deg, var(--color-surface), var(--color-primary-light)); border-left: 4px solid var(--color-primary);">
+          <div class="card-header" style="margin-bottom: var(--space-2);">
+            <h3 class="card-title" style="display: flex; align-items: center; gap: 8px;">
+              <span>🤖 Smart Financial Insights</span>
+            </h3>
+          </div>
+          <div id="smart-insights-list" style="display: flex; flex-direction: column; gap: 8px; font-size: var(--text-sm);">
+            <!-- Populated dynamically via DOM text nodes -->
+          </div>
+        </div>
+
+        <!-- Charts Grid Split -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-6); margin-bottom: var(--space-6);">
+          <!-- Category Expense Doughnut Chart Card -->
+          <div class="card chart-card">
+            <h3 class="card-title">Expense by Category</h3>
+            <div class="chart-container">
+              <canvas id="chart-expense-category"></canvas>
+            </div>
+          </div>
+
+          <!-- Income vs Expense Bar Chart Card -->
+          <div class="card chart-card">
+            <h3 class="card-title">Income vs Expenses</h3>
+            <div class="chart-container">
+              <canvas id="chart-income-expense"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spending Trend Line Chart Card -->
+        <div class="card chart-card">
+          <h3 class="card-title">Daily Spending Trend</h3>
+          <div class="chart-container" style="height: 240px;">
+            <canvas id="chart-spending-trend"></canvas>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="../../js/pages/analytics.js"></script>
+</body>
+</html>
