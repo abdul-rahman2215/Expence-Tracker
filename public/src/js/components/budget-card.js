@@ -39,7 +39,7 @@ export function renderBudgetCard(containerEl, { title = 'Monthly Budget', budget
 
     <div style="display: flex; justify-content: space-between; font-size: 13px; color: var(--color-text-muted);">
       <span>Remaining: <strong class="text-income">${formatCurrency(remaining)}</strong></span>
-      ${usagePercentage >= 100 ? '<span class="text-danger font-bold">⚠️ Budget Exceeded</span>' : usagePercentage >= 80 ? '<span class="text-warning font-bold">⚠️ 80% Threshold Reached</span>' : '<span>On Track</span>'}
+      ${usagePercentage >= 100 ? '<span class="text-danger font-bold"><i class="ti ti-alert-triangle"></i> Budget Exceeded</span>' : usagePercentage >= 80 ? '<span class="text-warning font-bold"><i class="ti ti-alert-triangle"></i> 80% Threshold Reached</span>' : '<span>On Track</span>'}
     </div>
   `;
 }

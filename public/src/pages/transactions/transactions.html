@@ -15,6 +15,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
   
+  <!-- Tabler Icons Webfont -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  
   <!-- CSS Design System -->
   <link rel="stylesheet" href="../../css/reset.css">
   <link rel="stylesheet" href="../../css/variables.css">
@@ -47,8 +50,8 @@
             <p class="text-muted">Manage, filter, and search your recorded income and expenses.</p>
           </div>
           <div style="display: flex; gap: 12px;">
-            <button id="btn-page-add-income" class="btn btn-secondary btn-sm" style="color: var(--color-income);">+ Add Income</button>
-            <button id="btn-page-add-expense" class="btn btn-primary btn-sm">+ Add Expense</button>
+            <button id="btn-page-add-income" class="btn btn-secondary btn-sm" style="color: var(--color-income);"><i class="ti ti-trending-up"></i> Add Income</button>
+            <button id="btn-page-add-expense" class="btn btn-primary btn-sm"><i class="ti ti-trending-down"></i> Add Expense</button>
           </div>
         </div>
 
@@ -108,9 +111,9 @@
                 <tr>
                   <th>Date</th>
                   <th>Category</th>
-                  <th>Description</th>
-                  <th>Payment</th>
                   <th>Amount</th>
+                  <th>Payment</th>
+                  <th>Description</th>
                   <th>Actions</th>
                 </tr>
               </thead>

@@ -15,6 +15,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
   
+  <!-- Tabler Icons Webfont -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  
   <!-- CSS Design System -->
   <link rel="stylesheet" href="../../css/reset.css">
   <link rel="stylesheet" href="../../css/variables.css">
@@ -28,13 +31,17 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
-    .auth-container {
-      min-height: 100vh;
+    body {
+      background-color: var(--color-bg);
       display: flex;
       align-items: center;
       justify-content: center;
+      min-height: 100vh;
       padding: var(--space-4);
-      background: radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.18), #080A14 70%);
+    }
+    .auth-container {
+      width: 100%;
+      max-width: 420px;
     }
     .auth-card {
       width: 100%;
@@ -85,9 +92,9 @@
             <a href="forgot-password.html" class="text-primary" style="font-size: var(--text-xs);">Forgot password?</a>
           </div>
           <div style="position: relative; display: flex; align-items: center;">
-            <input type="password" id="password" class="form-control" placeholder="••••••••" required style="padding-right: 60px;">
-            <button type="button" id="btn-toggle-password" style="position: absolute; right: 10px; background: none; border: none; font-size: 12px; color: var(--color-text-muted); cursor: pointer;" aria-label="Toggle password visibility">
-              👁️ Show
+            <input type="password" id="password" class="form-control" placeholder="••••••••" required style="padding-right: 48px;">
+            <button type="button" id="btn-toggle-password" style="position: absolute; right: 12px; background: none; border: none; font-size: 1.15rem; color: var(--color-text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 4px;" aria-label="Toggle password visibility">
+              <i class="ti ti-eye"></i>
             </button>
           </div>
         </div>

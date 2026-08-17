@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   togglePassBtn?.addEventListener('click', () => {
     if (passwordInput.type === 'password') {
       passwordInput.type = 'text';
-      togglePassBtn.textContent = '🙈 Hide';
+      togglePassBtn.innerHTML = '<i class="ti ti-eye-off"></i>';
     } else {
       passwordInput.type = 'password';
-      togglePassBtn.textContent = '👁️ Show';
+      togglePassBtn.innerHTML = '<i class="ti ti-eye"></i>';
     }
   });
 
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const result = await authService.login({ email, password });
 
     if (result.success) {
-      window.location.href = '/src/pages/dashboard/dashboard.html';
+      window.location.href = new URL('../dashboard/dashboard.html', window.location.href).href;
     } else {
       showAlert(result.error);
       setLoading(false);

@@ -26,13 +26,13 @@
 
 .table-responsive::-webkit-scrollbar-thumb,
 .transactions-table-wrapper::-webkit-scrollbar-thumb {
-  background: #3A315B;
+  background: #EC4899;
   border-radius: 4px;
 }
 
 .table-responsive::-webkit-scrollbar-thumb:hover,
 .transactions-table-wrapper::-webkit-scrollbar-thumb:hover {
-  background: #7C3AED;
+  background: #EC4899;
 }
 
 .table {
@@ -85,9 +85,25 @@
 
 /* Mobile Table Column Alignment & Minimum Width Rules */
 @media (max-width: 768px) {
+  /* Force overflow-x: scroll on mobile so Android Chrome & iOS Safari ALWAYS render the horizontal scrollbar */
+  .table-responsive,
+  .transactions-table-wrapper {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: scroll !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior-x: contain !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: #EC4899 #0D1020 !important;
+    margin-top: 8px !important;
+  }
+
   .table {
-    width: max-content;
-    min-width: 100%;
+    width: max-content !important;
+    min-width: 560px !important;
   }
 
   .table th, .table td {
@@ -105,23 +121,42 @@
     white-space: nowrap;
   }
 
-  .table th:nth-child(3), .table td:nth-child(3) { /* Description */
+  .table th:nth-child(3), .table td:nth-child(3) { /* Amount */
+    min-width: 110px;
+    white-space: nowrap;
+  }
+
+  .table th:nth-child(4), .table td:nth-child(4) { /* Payment / Description */
+    min-width: 110px;
+    white-space: nowrap;
+  }
+
+  .table th:nth-child(5), .table td:nth-child(5) { /* Description */
     min-width: 140px;
     white-space: normal;
-  }
-
-  .table th:nth-child(4), .table td:nth-child(4) { /* Payment / Amount */
-    min-width: 105px;
-    white-space: nowrap;
-  }
-
-  .table th:nth-child(5), .table td:nth-child(5) { /* Amount */
-    min-width: 105px;
-    white-space: nowrap;
   }
 
   .table th:nth-child(6), .table td:nth-child(6) { /* Actions */
     min-width: 130px;
     white-space: nowrap;
+  }
+
+  /* Pink Horizontal Slider Bar for Mobile Table Touch Scrolling */
+  .table-responsive::-webkit-scrollbar,
+  .transactions-table-wrapper::-webkit-scrollbar {
+    height: 6px !important;
+    display: block !important;
+  }
+
+  .table-responsive::-webkit-scrollbar-track,
+  .transactions-table-wrapper::-webkit-scrollbar-track {
+    background: #0D1020 !important;
+    border-radius: 4px !important;
+  }
+
+  .table-responsive::-webkit-scrollbar-thumb,
+  .transactions-table-wrapper::-webkit-scrollbar-thumb {
+    background: #EC4899 !important;
+    border-radius: 4px !important;
   }
 }

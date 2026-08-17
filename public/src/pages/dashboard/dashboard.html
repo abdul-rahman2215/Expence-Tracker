@@ -16,6 +16,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
   
+  <!-- Tabler Icons Webfont -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  
   <!-- CSS Design System -->
   <link rel="stylesheet" href="../../css/reset.css">
   <link rel="stylesheet" href="../../css/variables.css">
@@ -65,8 +68,8 @@
             </div>
 
             <div style="display: flex; gap: 8px;">
-              <button id="btn-dash-add-income" class="btn-bubble btn-bubble-income">+ Add Income</button>
-              <button id="btn-dash-add-expense" class="btn-bubble">+ Add Expense</button>
+              <button id="btn-dash-add-income" class="btn-bubble btn-bubble-income"><i class="ti ti-trending-up"></i> Add Income</button>
+              <button id="btn-dash-add-expense" class="btn-bubble"><i class="ti ti-trending-down"></i> Add Expense</button>
             </div>
           </div>
         </div>
@@ -77,7 +80,7 @@
           <div class="card metric-card metric-card-balance">
             <div class="metric-header">
               <span>Total Balance</span>
-              <div class="icon-wrapper">💼</div>
+              <div class="icon-wrapper"><i class="ti ti-wallet"></i></div>
             </div>
             <div id="val-total-balance" class="metric-value">₹0.00</div>
             <div class="metric-footer">Net available balance</div>
@@ -87,7 +90,7 @@
           <div class="card metric-card">
             <div class="metric-header">
               <span>Total Income</span>
-              <div class="metric-icon" style="background: var(--color-income-light); color: var(--color-income);">📥</div>
+              <div class="metric-icon" style="background: var(--color-income-light); color: var(--color-income);"><i class="ti ti-cash"></i></div>
             </div>
             <div id="val-total-income" class="metric-value text-income">₹0.00</div>
             <div class="metric-footer">Total earnings in period</div>
@@ -97,7 +100,7 @@
           <div class="card metric-card">
             <div class="metric-header">
               <span>Total Expenses</span>
-              <div class="metric-icon" style="background: var(--color-expense-light); color: var(--color-expense);">📤</div>
+              <div class="metric-icon" style="background: var(--color-expense-light); color: var(--color-expense);"><i class="ti ti-receipt"></i></div>
             </div>
             <div id="val-total-expense" class="metric-value text-expense">₹0.00</div>
             <div class="metric-footer">Total spent in period</div>
@@ -107,7 +110,7 @@
           <div class="card metric-card">
             <div class="metric-header">
               <span>Net Savings</span>
-              <div class="metric-icon" style="background: var(--color-savings-light); color: var(--color-savings);">🌱</div>
+              <div class="metric-icon" style="background: var(--color-savings-light); color: var(--color-savings);"><i class="ti ti-pig-money"></i></div>
             </div>
             <div id="val-net-savings" class="metric-value text-savings">₹0.00</div>
             <div class="metric-footer">Income minus Expenses</div>
@@ -129,8 +132,8 @@
                     <tr>
                       <th>Date</th>
                       <th>Category</th>
-                      <th>Description</th>
                       <th>Amount</th>
+                      <th>Description</th>
                     </tr>
                   </thead>
                   <tbody id="dash-recent-tbody">

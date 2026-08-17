@@ -96,10 +96,10 @@ class AuthService {
       if (client) {
         await client.auth.signOut();
       }
-      window.location.href = '/src/pages/auth/login.html';
+      window.location.href = new URL('../auth/login.html', window.location.href).href;
     } catch (err) {
       console.error('Logout Error:', err);
-      window.location.href = '/src/pages/auth/login.html';
+      window.location.href = new URL('../auth/login.html', window.location.href).href;
     }
   }
 
@@ -150,7 +150,7 @@ class AuthService {
   async requireAuth() {
     const client = getSupabase();
     if (!client) {
-      window.location.href = '/src/pages/auth/login.html';
+      window.location.href = new URL('../auth/login.html', window.location.href).href;
       return null;
     }
 
@@ -169,7 +169,7 @@ class AuthService {
 
     const { data } = await client.auth.getSession();
     if (!data || !data.session) {
-      window.location.href = '/src/pages/auth/login.html';
+      window.location.href = new URL('../auth/login.html', window.location.href).href;
       return null;
     }
     return data.session.user;
@@ -186,7 +186,7 @@ class AuthService {
       for (let i = 0; i < 20; i++) {
         const { data } = await client.auth.getSession();
         if (data && data.session) {
-          window.location.href = '/src/pages/dashboard/dashboard.html';
+          window.location.href = new URL('../dashboard/dashboard.html', window.location.href).href;
           return;
         }
         await new Promise(resolve => setTimeout(resolve, 100));
@@ -195,7 +195,7 @@ class AuthService {
 
     const { data } = await client.auth.getSession();
     if (data && data.session) {
-      window.location.href = '/src/pages/dashboard/dashboard.html';
+      window.location.href = new URL('../dashboard/dashboard.html', window.location.href).href;
     }
   }
 

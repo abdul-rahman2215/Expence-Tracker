@@ -33,6 +33,34 @@ p {
 
 .hidden { display: none !important; }
 
+/* Tabler Icon Standardization */
+.ti {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  line-height: 1;
+  font-size: 1.15em;
+  stroke-width: 1.8;
+}
+
+.nav-item .ti {
+  font-size: 1.25rem;
+}
+
+.metric-header .ti, .metric-icon .ti {
+  font-size: 1.4rem;
+}
+
+.mobile-nav-item .ti {
+  font-size: 1.35rem;
+}
+
+.btn .ti, .btn-bubble .ti {
+  font-size: 1.1rem;
+  margin-right: 4px;
+}
+
 /* Utility Container */
 .container {
   width: 100%;

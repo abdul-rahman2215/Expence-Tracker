@@ -56,12 +56,12 @@ export function renderTransactionTable(transactions = [], { onEdit, onDelete } =
 
     const editBtn = document.createElement('button');
     editBtn.className = 'btn btn-secondary btn-sm';
-    editBtn.textContent = '✏️ Edit';
+    editBtn.innerHTML = '<i class="ti ti-pencil"></i> Edit';
     editBtn.addEventListener('click', () => onEdit && onEdit(t));
 
     const deleteBtn = document.createElement('button');
     deleteBtn.className = 'btn btn-danger btn-sm';
-    deleteBtn.textContent = '🗑️ Delete';
+    deleteBtn.innerHTML = '<i class="ti ti-trash"></i> Delete';
     deleteBtn.addEventListener('click', () => onDelete && onDelete(t));
 
     actionsTd.appendChild(editBtn);
@@ -69,9 +69,9 @@ export function renderTransactionTable(transactions = [], { onEdit, onDelete } =
 
     row.appendChild(dateTd);
     row.appendChild(categoryTd);
-    row.appendChild(descTd);
-    row.appendChild(paymentTd);
     row.appendChild(amountTd);
+    row.appendChild(paymentTd);
+    row.appendChild(descTd);
     row.appendChild(actionsTd);
 
     tableBody.appendChild(row);

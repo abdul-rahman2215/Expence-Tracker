@@ -17,11 +17,15 @@ class BudgetService {
       const client = getSupabase();
       if (!client) throw new Error('Supabase client unavailable.');
 
+      const user = (await client.auth.getUser())?.data?.user;
+      if (!user) throw new Error('User unauthenticated.');
+
       const { data, error } = await client
         .from('budgets')
         .select('*, budget_categories(*, categories(id, name, type))')
-        .eq('month', month)
-        .eq('year', year)
+        .eq('user_id', user.id)
+        .eq('month', Number(month))
+        .eq('year', Number(year))
         .maybeSingle();
 
       if (error && error.code !== 'PGRST116') throw error;

@@ -36,13 +36,25 @@ export class Modal {
   open() {
     if (!this.modalBackdrop) return;
     this.modalBackdrop.classList.add('active');
+    document.body.classList.add('modal-open');
+    this._scrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${this._scrollY}px`;
+    document.body.style.width = '100%';
     document.body.style.overflow = 'hidden';
   }
 
   close() {
     if (!this.modalBackdrop) return;
     this.modalBackdrop.classList.remove('active');
+    document.body.classList.remove('modal-open');
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
     document.body.style.overflow = '';
+    if (this._scrollY !== undefined) {
+      window.scrollTo(0, this._scrollY);
+    }
   }
 
   isOpen() {

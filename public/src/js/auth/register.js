@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (result.success) {
       showAlert('Registration successful! Redirecting to login...', false);
       setTimeout(() => {
-        window.location.href = '/src/pages/auth/login.html';
+        window.location.href = new URL('../auth/login.html', window.location.href).href;
       }, 1500);
     } else {
       showAlert(result.error);

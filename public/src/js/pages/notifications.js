@@ -46,7 +46,12 @@ document.addEventListener('DOMContentLoaded', async () => {
       result.notifications.forEach(n => {
         const item = document.createElement('div');
         item.className = 'card';
-        item.style.borderLeft = `4px solid ${n.threshold === 100 ? 'var(--color-danger)' : 'var(--color-warning)'}`;
+        
+        const isDanger = n.threshold === 100 || n.type === 'budget_100';
+        const isWarning = n.threshold === 80 || n.type === 'budget_80';
+        const borderColor = isDanger ? 'var(--color-danger)' : isWarning ? 'var(--color-warning)' : 'var(--color-primary)';
+
+        item.style.borderLeft = `4px solid ${borderColor}`;
         item.style.opacity = n.is_read ? '0.7' : '1';
 
         const header = document.createElement('div');
@@ -76,7 +81,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           const markBtn = document.createElement('button');
           markBtn.className = 'btn btn-secondary btn-sm';
           markBtn.style.marginTop = '10px';
-          markBtn.textContent = '✓ Mark as Read';
+          markBtn.innerHTML = '<i class="ti ti-check"></i> Mark as Read';
           markBtn.addEventListener('click', async () => {
             await notificationService.markAsRead(n.id);
             loadNotifications();

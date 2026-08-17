@@ -15,6 +15,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
   
+  <!-- Tabler Icons Webfont -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  
   <!-- CSS Design System -->
   <link rel="stylesheet" href="../../css/reset.css">
   <link rel="stylesheet" href="../../css/variables.css">
@@ -46,10 +49,10 @@
             <p class="text-muted">Set spending limits, monitor budget usage, and receive warning alerts.</p>
           </div>
           
-          <div style="display: flex; gap: 12px; align-items: center;">
+          <div class="budget-header-controls" style="display: flex; gap: 12px; align-items: center;">
             <select id="budget-month-select" class="form-control" style="width: 140px;"></select>
             <select id="budget-year-select" class="form-control" style="width: 110px;"></select>
-            <button id="btn-open-set-budget" class="btn btn-primary btn-sm">⚙️ Set Monthly Budget</button>
+            <button id="btn-open-set-budget" class="btn btn-primary btn-sm"><i class="ti ti-settings"></i> Set Monthly Budget</button>
           </div>
         </div>
 

@@ -131,8 +131,8 @@ export class TransactionModal {
       deleteContainer.innerHTML = `
         <div class="modal" style="max-width: 400px;">
           <div class="modal-header">
-            <h3 class="modal-title">Delete Transaction</h3>
-            <button class="modal-close" data-modal-close>&times;</button>
+            <h3 class="modal-title"><i class="ti ti-trash"></i> Delete Transaction</h3>
+            <button class="modal-close" data-modal-close><i class="ti ti-x"></i></button>
           </div>
           <div class="modal-body">
             <p>Are you sure you want to delete this transaction? This action cannot be undone.</p>
@@ -150,7 +150,7 @@ export class TransactionModal {
   async openAddExpense() {
     this.currentMode = 'expense';
     this.currentTransactionId = null;
-    document.getElementById('modal-tx-title').textContent = '+ Add Expense';
+    document.getElementById('modal-tx-title').innerHTML = '<i class="ti ti-trending-down"></i> Add Expense';
     await this._loadCategories('expense');
     this._resetForm();
     this.modalInstance.open();
@@ -159,7 +159,7 @@ export class TransactionModal {
   async openAddIncome() {
     this.currentMode = 'income';
     this.currentTransactionId = null;
-    document.getElementById('modal-tx-title').textContent = '+ Add Income';
+    document.getElementById('modal-tx-title').innerHTML = '<i class="ti ti-trending-up"></i> Add Income';
     await this._loadCategories('income');
     this._resetForm();
     this.modalInstance.open();
@@ -168,7 +168,7 @@ export class TransactionModal {
   async openEdit(transaction) {
     this.currentMode = transaction.type;
     this.currentTransactionId = transaction.id;
-    document.getElementById('modal-tx-title').textContent = `Edit ${transaction.type === 'income' ? 'Income' : 'Expense'}`;
+    document.getElementById('modal-tx-title').innerHTML = `<i class="ti ti-pencil"></i> Edit ${transaction.type === 'income' ? 'Income' : 'Expense'}`;
     await this._loadCategories(transaction.type);
     
     document.getElementById('tx-amount').value = transaction.amount;

@@ -27,8 +27,8 @@ class ToastManager {
     toast.className = `toast toast-${type}`;
 
     const icon = document.createElement('span');
-    icon.style.fontWeight = 'bold';
-    icon.textContent = type === 'success' ? '✓' : type === 'danger' ? '✕' : 'ℹ';
+    icon.className = 'toast-icon';
+    icon.innerHTML = type === 'success' ? '<i class="ti ti-circle-check"></i>' : type === 'danger' ? '<i class="ti ti-circle-x"></i>' : type === 'warning' ? '<i class="ti ti-alert-triangle"></i>' : '<i class="ti ti-info-circle"></i>';
 
     const text = document.createElement('span');
     text.textContent = message;

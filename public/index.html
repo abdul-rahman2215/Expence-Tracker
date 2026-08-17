@@ -17,6 +17,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
   
+  <!-- Tabler Icons Webfont -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  
   <!-- CSS Design System -->
   <link rel="stylesheet" href="src/css/reset.css">
   <link rel="stylesheet" href="src/css/variables.css">
@@ -191,7 +194,7 @@
     <div class="container" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
       <div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0;">
         <img src="assets/images/logo.png" onerror="this.onerror=null; this.src='/assets/images/logo.png';" alt="Smart Expense Logo" class="brand-logo-img" style="width: 34px; height: 34px;">
-        <span class="landing-brand-text">Smart Expense</span>
+        <span class="landing-brand-text">Smart Expense Tracker</span>
       </div>
       <nav style="display: flex; align-items: center; gap: 16px;">
         <div class="landing-nav-links" style="display: flex; align-items: center; gap: 20px;">
@@ -362,5 +365,11 @@
     </div>
   </footer>
 
+  <script type="module">
+    import { showMobileSplash } from './src/js/components/splash.js';
+    document.addEventListener('DOMContentLoaded', async () => {
+      await showMobileSplash();
+    });
+  </script>
 </body>
 </html>

@@ -8,21 +8,21 @@ export function renderSidebar(activeRoute = 'dashboard') {
   if (!sidebarEl) return;
 
   const routes = [
-    { id: 'dashboard', label: 'Dashboard', icon: '📊', path: '../dashboard/dashboard.html' },
-    { id: 'transactions', label: 'Transactions', icon: '💳', path: '../transactions/transactions.html' },
-    { id: 'budget', label: 'Budgets', icon: '🎯', path: '../budget/budget.html' },
-    { id: 'analytics', label: 'Analytics', icon: '📈', path: '../analytics/analytics.html' },
-    { id: 'reports', label: 'Reports', icon: '📑', path: '../reports/reports.html' },
-    { id: 'notifications', label: 'Notifications', icon: '🔔', path: '../notifications/notifications.html' },
-    { id: 'profile', label: 'Profile', icon: '👤', path: '../profile/profile.html' },
-    { id: 'settings', label: 'Settings', icon: '⚙️', path: '../settings/settings.html' }
+    { id: 'dashboard', label: 'Dashboard', icon: '<i class="ti ti-layout-dashboard"></i>', path: '../dashboard/dashboard.html' },
+    { id: 'transactions', label: 'Transactions', icon: '<i class="ti ti-arrows-exchange"></i>', path: '../transactions/transactions.html' },
+    { id: 'budget', label: 'Budgets', icon: '<i class="ti ti-wallet"></i>', path: '../budget/budget.html' },
+    { id: 'analytics', label: 'Analytics', icon: '<i class="ti ti-chart-bar"></i>', path: '../analytics/analytics.html' },
+    { id: 'reports', label: 'Reports', icon: '<i class="ti ti-file-analytics"></i>', path: '../reports/reports.html' },
+    { id: 'notifications', label: 'Notifications', icon: '<i class="ti ti-bell"></i>', path: '../notifications/notifications.html' },
+    { id: 'profile', label: 'Profile', icon: '<i class="ti ti-user-circle"></i>', path: '../profile/profile.html' },
+    { id: 'settings', label: 'Settings', icon: '<i class="ti ti-settings"></i>', path: '../settings/settings.html' }
   ];
 
   sidebarEl.className = 'sidebar';
   sidebarEl.innerHTML = `
     <div class="sidebar-header">
       <img src="../../assets/images/logo.png" onerror="this.onerror=null; this.src='/assets/images/logo.png';" alt="Smart Expense Logo" class="sidebar-logo-img">
-      <span class="sidebar-brand">Smart Expense</span>
+      <span class="sidebar-brand">Smart Expense Tracker</span>
     </div>
     <nav class="sidebar-nav">
       ${routes.map(r => `
@@ -34,7 +34,7 @@ export function renderSidebar(activeRoute = 'dashboard') {
     </nav>
     <div class="sidebar-footer">
       <button id="btn-sidebar-logout" class="c-button c-button--gooey" style="width: 100%; font-size: 13px; padding: 0.6em 1em;">
-        🚪 Logout
+        <i class="ti ti-logout"></i> Logout
         <div class="c-button__blobs">
           <div></div><div></div><div></div>
         </div>

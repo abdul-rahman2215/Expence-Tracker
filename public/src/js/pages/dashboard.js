@@ -1,8 +1,10 @@
 import { authService } from '../auth/auth.js';
 import { renderSidebar } from '../components/sidebar.js';
 import { renderNavbar } from '../components/navbar.js';
+import { profileService } from '../services/profile-service.js';
 import { transactionService } from '../services/transaction-service.js';
 import { budgetService } from '../services/budget-service.js';
+import { notificationService } from '../services/notification-service.js';
 import { formatCurrency } from '../utils/formatters.js';
 import { formatDateForDisplay, getCalendarMonthBounds, getPreviousMonthBounds } from '../utils/date-utils.js';
 import { TransactionModal } from '../components/transaction-modal.js';
@@ -13,8 +15,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   const user = await authService.requireAuth();
   if (!user) return;
 
-  // Dynamic User Greeting
-  const userName = user?.user_metadata?.name || user?.email?.split('@')[0] || 'User';
+  // Dynamic User Greeting (reading from profileService for 100% Profile synchronization)
+  let userName = user?.user_metadata?.name || user?.email?.split('@')[0] || 'User';
+  const profileRes = await profileService.getProfile();
+  if (profileRes.success && profileRes.profile?.name) {
+    userName = profileRes.profile.name;
+  }
+
   const pageTitleEl = document.querySelector('.page-title-group h1');
   const pageSubEl = document.querySelector('.page-title-group p');
   if (pageTitleEl) pageTitleEl.textContent = `Welcome back, ${userName}`;
@@ -119,6 +126,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (txResult.success) {
       renderRecentTransactions(txResult.transactions);
     }
+
+    // 3. Evaluate daily transaction reminder asynchronously
+    notificationService.checkAndTriggerDailyReminder();
   }
 
   // Render Recent Transactions Table Body
@@ -160,8 +170,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       tr.appendChild(dateTd);
       tr.appendChild(categoryTd);
-      tr.appendChild(descTd);
       tr.appendChild(amountTd);
+      tr.appendChild(descTd);
 
       tbody.appendChild(tr);
     });

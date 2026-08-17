@@ -42,10 +42,12 @@ class ProfileService {
       const user = (await client.auth.getUser())?.data?.user;
       if (!user) throw new Error('User unauthenticated.');
 
+      const trimmedName = name.trim();
+
       const { data, error } = await client
         .from('profiles')
         .update({
-          name: name.trim(),
+          name: trimmedName,
           currency: currency || 'INR'
         })
         .eq('id', user.id)
@@ -53,6 +55,12 @@ class ProfileService {
         .single();
 
       if (error) throw error;
+
+      // Keep Supabase Auth user_metadata synchronized with profile table
+      await client.auth.updateUser({
+        data: { name: trimmedName }
+      });
+
       return { success: true, profile: data };
     } catch (err) {
       console.error('Error updating profile:', err);
